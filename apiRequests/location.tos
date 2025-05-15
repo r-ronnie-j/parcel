@@ -1,0 +1,60 @@
+name='Get Location from Id'
+method = HttpMethod.GET
+url = "http://localhost:8080/location/2"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'ZqOHA0TOfZzLsep1ZsO01Y2ses8VW8oZ'  
+examples = []
+//*-----|****|-----*//
+name='Get all locations'
+method = HttpMethod.GET
+url = "http://localhost:8080/location/allLocation"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'X2DSVHeI9RoPDO8Nonhax3wDMMJD61R3'  
+examples = []
+//*-----|****|-----*//
+name='Get All products at given location'
+method = HttpMethod.GET
+url = "http://localhost:8080/location/products/1"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'cfyA8lIOiZnx3jyUCguAcJngWkJxTpnI'  
+examples = []
+//*-----|****|-----*//
+name='Add Location'
+method = HttpMethod.POST
+url = "http://localhost:8080/location/add"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+json = `{
+    "name":"Pick up point at Birgunj",
+    "location":"Birgunj",
+    "email":"birgunj@gmail.com"
+}`
+nonce = 'Omp3XpOJ1VWdtvt53F7if1YB5mtlZlyN'  
+examples = []

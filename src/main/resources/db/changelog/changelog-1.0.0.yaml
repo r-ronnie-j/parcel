@@ -1,0 +1,187 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-users-products
+      author: ronnie
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+        - rollback:
+            - dropTable:
+                tableName: user
+
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(2550)
+              - column:
+                  name: price
+                  type: DECIMAL
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - rollback:
+            - dropTable:
+                tableName: product
+
+        - addForeignKeyConstraint:
+            baseTableName: product
+            baseColumnNames: user_id
+            referencedTableName: user
+            referencedColumnNames: id
+            constraintName: fk_product_user
+        - rollback:
+            - dropForeignKeyConstraint:
+                baseTableName: product
+                constraintName: fk_product_user
+
+        - createTable:
+            tableName: location
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(2550)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+        - rollback:
+            - dropTable:
+                tableName: location
+
+        - createTable:
+            tableName: transit
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: location_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - rollback:
+            - dropTable:
+                tableName: transit
+
+        - addForeignKeyConstraint:
+            baseTableName: transit
+            baseColumnNames: product_id
+            referencedTableName: product
+            referencedColumnNames: id
+            constraintName: fk_transit_product
+        - rollback:
+            - dropForeignKeyConstraint:
+                baseTableName: transit
+                constraintName: fk_transit_product
+
+        - addForeignKeyConstraint:
+            baseTableName: transit
+            baseColumnNames: location_id
+            referencedTableName: location
+            referencedColumnNames: id
+            constraintName: fk_transit_location
+        - rollback:
+            - dropForeignKeyConstraint:
+                baseTableName: transit
+                constraintName: fk_transit_location
+
+        - createTable:
+            tableName: product_status
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: transit_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: "ENUM('Out_For_Delivery', 'Picked_Up', 'Delivered')"
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+        - rollback:
+            - dropTable:
+                tableName: product_status
+
+        - addForeignKeyConstraint:
+            baseTableName: product_status
+            baseColumnNames: transit_id
+            referencedTableName: transit
+            referencedColumnNames: id
+            constraintName: fk_product_status_transit
+        - rollback:
+            - dropForeignKeyConstraint:
+                baseTableName: product_status
+                constraintName: fk_product_status_transit

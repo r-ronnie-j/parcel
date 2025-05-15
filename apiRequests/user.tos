@@ -1,0 +1,63 @@
+name='Testing application'
+method = HttpMethod.GET
+url = "http://localhost:8080/"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'lxLEHLODaZ3mKDEunmFFCwu7BqHDqX3m'  
+examples = []
+//*-----|****|-----*//
+name='Adding user Tom'
+method = HttpMethod.POST
+url = "http://localhost:8080/user/signup"
+https = Https['HTTP/1.1']
+headers = { 'Content-Type': 'application/json', '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+json = `{
+    "name":"Tom",
+    "email":"tom@gmail.com"
+}`
+nonce = '1FtBUb1dIRsrJxl2pd3CLS9TmGcFMiXF'  
+examples = []
+//*-----|****|-----*//
+name='Adding user Jerry'
+method = HttpMethod.POST
+url = "http://localhost:8080/user/signup"
+https = Https['HTTP/1.1']
+headers = { 'Content-Type': 'application/json', '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+json = `{
+    "name":"Jerry",
+    "email":"jerry@gmail.com"
+}`
+nonce = 'plnTGNq8RdGTKBLBjnoMnkakq08C4olR'  
+examples = []
+//*-----|****|-----*//
+name='Get all users'
+method = HttpMethod.GET
+url = "http://localhost:8080/user/alluser"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = '0M5yHYAjwLm39f0zciaF9clESk9SAMKe'  
+examples = []

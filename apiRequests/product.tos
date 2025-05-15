@@ -1,0 +1,93 @@
+name='Add Product'
+method = HttpMethod.POST
+url = "http://localhost:8080/product/addProduct"
+https = Https['HTTP/1.1']
+headers = { 'Content-Type': 'application/json', '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+json = `{
+    "name":"Cup",
+    "description":"This is the cup",
+    "price":13.90,
+    "userId":2,
+    "locationIds":[1,2,3,4,6]
+}`
+nonce = 'WeTkr6wRZJokfSgGiyvjFtYanYKoSNxx'  
+examples = []
+//*-----|****|-----*//
+name='Get All Products'
+method = HttpMethod.GET
+url = "http://localhost:8080/product/getAllProducts"
+https = Https['HTTP/1.1']
+headers = { 'Content-Type': 'application/json', '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'YTbLUR3Q7rqWCNpM11wYfsxTLCsIClQs'  
+examples = []
+//*-----|****|-----*//
+name='Add Status of Parcel'
+method = HttpMethod.POST
+url = "http://localhost:8080/product/addStatus/1"
+https = Https['HTTP/1.1']
+headers = { 'Content-Type': 'application/json', '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.rawJson
+formData = { '': '' }
+urlEncoded = { '': '' }
+json = `{
+    "status":"Picked_Up"
+}`
+nonce = 'COgs6L6TqnPLZPh7VONO6jILjdF1qh72'  
+examples = []
+//*-----|****|-----*//
+name='Get Product By Id'
+method = HttpMethod.GET
+url = "http://localhost:8080/product/3"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'sTA9D2tzPJngQCKUXmwiSYyJn4cMZetL'  
+examples = []
+//*-----|****|-----*//
+name='Get Product at given location'
+method = HttpMethod.GET
+url = "http://localhost:8080/location/products/1"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'joBMbUm6f1hb6jeoFmqc7YTbrsYp563z'  
+examples = []
+//*-----|****|-----*//
+name='Get current location for Product'
+method = HttpMethod.GET
+url = "http://localhost:8080/product/getProductLocation/4"
+https = Https['HTTP/1.1']
+headers = { '': '' }
+params = { '': '' }
+timeout = 30
+timeoutType = TimeOutType.s
+requestDataType = RequestDataType.none
+formData = { '': '' }
+urlEncoded = { '': '' }
+nonce = 'phk7vsaeCPHfCAPdMIpI6OS3jVFufhps'  
+examples = []
