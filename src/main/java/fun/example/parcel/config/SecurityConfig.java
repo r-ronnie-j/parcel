@@ -1,4 +1,4 @@
-package fun.example.parcel.controller;
+package fun.example.parcel.config;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
@@ -9,6 +9,7 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -18,7 +19,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .requiresChannel(channel -> channel.anyRequest().requiresSecure())
-                .csrf(csrf -> csrf.disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
                         .anyRequest().permitAll());
         return http.build();

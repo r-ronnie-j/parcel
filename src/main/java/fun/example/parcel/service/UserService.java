@@ -2,8 +2,6 @@ package fun.example.parcel.service;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 import fun.example.parcel.db.dto.UserDto;
 import fun.example.parcel.db.entity.UserEntity;
 import fun.example.parcel.db.repository.UserRepository;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -24,8 +21,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class UserService {
-
-    // Logger logger = LoggerFactory.getLogger(UserService.class);
 
     final UserRepository userRepository;
 
@@ -49,7 +44,6 @@ public class UserService {
 
     public ResponseEntity<SignupResponse> signup(SignupRequest request) {
         try {
-            //fetch user from email and check unique email or not
             UserEntity user = new UserEntity();
             user.setName(request.getName());
             user.setEmail(request.getEmail());
